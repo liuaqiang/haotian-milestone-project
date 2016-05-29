@@ -20,7 +20,7 @@ def index():
         return redirect('http://google.com')
     #    # app.vars['ticker'] = request.form['ticker']
     #    return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
-    else
+    else:
         return render_template('index.html')
 
 # ticker = 'GOOG'
