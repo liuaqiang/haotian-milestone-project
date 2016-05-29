@@ -12,11 +12,9 @@ def main():
 
 @app.route('/index', methods = ['get', 'post'])
 def index():
-    # nquestions = 5
-    # return render_template('index.html')
     if request.method == 'post':
         ticker  = request.form['ticker']
-        features = request.form.getlist('features')
+        # features = request.form.getlist('features')
         return redirect('https://www.google.com/#q=' + ticker)
     else:
         return render_template('index.html')
