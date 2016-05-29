@@ -13,6 +13,7 @@ def main():
 @app.route('/index', methods = ['post'])
 def index():
     ticker = request.form['ticker']
+    features = request.form.getlist('features')
     return ticker
     #return redirect('/graph')
     #if request.method == 'post':
