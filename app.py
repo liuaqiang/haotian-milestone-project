@@ -9,7 +9,7 @@ app = Flask(__name__)
 def main():
   return redirect('/index')
 
-@app.route('/index')#, methods = ['get', 'post'])
+@app.route('/index', methods = ['get', 'post'])
 def index():
     # nquestions = 5
     return render_template('index.html')
