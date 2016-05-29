@@ -10,7 +10,7 @@ app.vars = {}
 def main():
   return redirect('/index')
 
-@app.route('/index', methods = ['POST'])
+@app.route('/index')#, methods = ['POST'])
 def index():
     # nquestions = 5
     # return render_template('index.html')
