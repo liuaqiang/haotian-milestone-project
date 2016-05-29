@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-# import requests
+import requests
 # from bokeh.plotting import figure
 # from bokeh.embed import components
 
@@ -12,13 +12,13 @@ def main():
 
 @app.route('/index', methods = ['get', 'post'])
 def index():
-    return redirect('/graph')
-#    if request.method == 'post':
-#        ticker  = request.form['ticker']
-#        features = request.form.getlist('features')
-#        return redirect('/graph')
-#    else:
-#        return render_template('index.html')
+#    return redirect('/graph')
+    if request.method == 'post':
+        ticker  = request.form['ticker']
+        features = request.form.getlist('features')
+        return redirect('/graph')
+    else:
+        return render_template('index.html')
 
 @app.route('/graph')
 def graph():
