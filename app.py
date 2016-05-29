@@ -10,10 +10,10 @@ app.vars = {}
 def main():
   return redirect('/index')
 
-@app.route('/index', methods = ['post'])
+@app.route('/index', methods = ['get', 'post'])
 def index():
 #    return redirect('/graph')
-#    if request.method == 'post':
+    if request.method == 'post':
         ticker  = request.form['ticker']
 #        features = request.form.getlist('features')
         return ticker
