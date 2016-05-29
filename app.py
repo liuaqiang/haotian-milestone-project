@@ -8,14 +8,14 @@ app.vars = {}
 
 @app.route('/')
 def main():
-  return redirect('/index')
+    return redirect('/index')
 
 @app.route('/index', methods = ['get', 'post'])
 def index():
-#    return redirect('/graph')
+    #return redirect('/graph')
     if request.method == 'post':
         ticker  = request.form['ticker']
-#        features = request.form.getlist('features')
+        features = request.form.getlist('features')
         return ticker
         #return redirect('/graph')
     else:
