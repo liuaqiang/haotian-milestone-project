@@ -9,12 +9,12 @@ app = Flask(__name__)
 def main():
   return redirect('/index')
 
-@app.route('/index')
+@app.route('/index', methods = ['GET', 'POST'])
 def index():
     nquestions = 5
     if request.method == 'POST':
         app.vars['ticker'] = request.form['ticker']
-        return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + app.vars['ticker'] + '.json')
+        return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
     else
         return render_template('index.html',num=nquestions)
 
