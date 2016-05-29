@@ -17,9 +17,8 @@ def index():
     if request.method == 'post':
         ticker  = request.form.get('ticker')
         features = request.form.getlist('features')
-        return redirect('http://google.com')
     #    # app.vars['ticker'] = request.form['ticker']
-    #    return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
+        return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + ticker + '.json')
     else:
         return render_template('index.html')
 
