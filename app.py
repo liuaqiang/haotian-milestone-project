@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect
 # from bokeh.embed import components
 
 app = Flask(__name__)
+app.vars = {}
 
 @app.route('/')
 def main():
