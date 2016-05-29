@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
-import requests
-from bokeh.plotting import figure
-from bokeh.embed import components
+# import requests
+# from bokeh.plotting import figure
+# from bokeh.embed import components
 
 app = Flask(__name__)
 
@@ -9,10 +9,10 @@ app = Flask(__name__)
 def main():
   return redirect('/index')
 
-@app.route('/index', methods = ['GET', 'POST'])
+@app.route('/index', methods = ['get', 'post'])
 def index():
-    nquestions = 5
-    if request.method == 'POST':
+    # nquestions = 5
+    if request.method == 'post':
         # app.vars['ticker'] = request.form['ticker']
         return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
     else
