@@ -20,7 +20,7 @@ def index():
         return render_template('index.html')
 
 @app.route('/graph')
-def graph()
+def graph():
     return redirect('http://google.com')
 
 # ticker = 'GOOG'
