@@ -16,7 +16,8 @@ def index():
     if request.method == 'post':
         ticker  = request.form['ticker']
         features = request.form.getlist('features')
-        return redirect('/graph')
+        return ticker
+        #return redirect('/graph')
     else:
         return render_template('index.html')
 
