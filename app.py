@@ -10,14 +10,14 @@ app.vars = {}
 def main():
   return redirect('/index')
 
-@app.route('/index', methods = ['get', 'post'])
+@app.route('/index', methods = ['post'])
 def index():
     # nquestions = 5
-    #return render_template('index.html')
-    if request.method == 'post':
-        #app.vars['ticker'] = request.form['ticker']
-        #app.vars['features'] = request.form.getlist('features')
-        return redirect('http://google.com')
+    # return render_template('index.html')
+    # if request.method == 'post':
+    app.vars['ticker'] = request.form['ticker']
+    app.vars['features'] = request.form.getlist('features')
+    return redirect('http://google.com')
     #    # app.vars['ticker'] = request.form['ticker']
     #    return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
     #else
