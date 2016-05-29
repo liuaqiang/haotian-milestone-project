@@ -18,8 +18,8 @@ def index():
 #        features = request.form.getlist('features')
         return ticker
         #return redirect('/graph')
-#    else:
-#        return render_template('index.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/graph')
 def graph():
