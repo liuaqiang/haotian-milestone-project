@@ -12,10 +12,10 @@ def main():
 @app.route('/index', methods = ['get', 'post'])
 def index():
     # nquestions = 5
-    return render_template('index.html')
-    #if request.method == 'post':
+    #return render_template('index.html')
+    if request.method == 'post':
     #    # app.vars['ticker'] = request.form['ticker']
-    #    return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
+        return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
     #else
     #    return render_template('index.html',num=nquestions)
 
