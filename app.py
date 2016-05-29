@@ -15,9 +15,13 @@ def index():
     if request.method == 'post':
         # ticker  = request.form['ticker']
         # features = request.form.getlist('features')
-        return redirect('http://GOOGLE.com')
+        return redirect('/graph')
     else:
         return render_template('index.html')
+
+@app.route('graph')
+def graph()
+    return redirect('http://google.com')
 
 # ticker = 'GOOG'
 
