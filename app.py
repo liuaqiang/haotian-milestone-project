@@ -15,7 +15,7 @@ def index():
     # nquestions = 5
     #return render_template('index.html')
     # if request.method == 'post':
-    app.vars['ticker'] = request.form.['ticker']
+    app.vars['ticker'] = request.form['ticker']
     # app.vars['features'] = request.form.getlist('features')
     return redirect('http://google.com')
     #    # app.vars['ticker'] = request.form['ticker']
