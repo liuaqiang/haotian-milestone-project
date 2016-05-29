@@ -13,8 +13,8 @@ def main():
 @app.route('/index', methods = ['get', 'post'])
 def index():
     if request.method == 'post':
-        ticker  = request.form['ticker']
-        features = request.form.getlist('features')
+        # ticker  = request.form['ticker']
+        # features = request.form.getlist('features')
         return redirect('http://GOOGLE.com')
     else:
         return render_template('index.html')
