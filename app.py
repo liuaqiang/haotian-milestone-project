@@ -13,7 +13,7 @@ def main():
 def index():
     nquestions = 5
     if request.method == 'POST':
-        app.vars['ticker'] = request.form['ticker']
+        # app.vars['ticker'] = request.form['ticker']
         return redirect('https://www.quandl.com/api/v1/datasets/WIKI/' + 'GOOG' + '.json')
     else
         return render_template('index.html',num=nquestions)
