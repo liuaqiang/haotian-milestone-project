@@ -10,16 +10,18 @@ app.vars = {}
 def main():
     return redirect('/index')
 
-@app.route('/index', methods = ['get', 'post'])
+@app.route('/index', methods = ['post'])
 def index():
+    ticker = request.form['ticker']
+    return ticker
     #return redirect('/graph')
-    if request.method == 'post':
-        ticker  = request.form['ticker']
-        features = request.form.getlist('features')
-        return ticker
-        #return redirect('/graph')
-    else:
-        return render_template('index.html')
+    #if request.method == 'post':
+    #    ticker  = request.form['ticker']
+    #    features = request.form.getlist('features')
+    #    return ticker
+    #    #return redirect('/graph')
+    #else:
+    #    return render_template('index.html')
 
 @app.route('/graph')
 def graph():
