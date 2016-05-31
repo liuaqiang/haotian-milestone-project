@@ -37,12 +37,14 @@ def graph():
 if __name__ == '__main__':
   app.run(host = '0.0.0.0')
 
-# obtaining data through API
+# # obtaining data through API
 # api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/' + ticker + '.json'
 # session = requests.Session()
 # session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
 # raw_data = session.get(api_url)
 # json_data = raw_data.json()
+# # json_data.keys() # display keys of concern
+# # [value for key,value in json_data.items() if key not in ['data']]
 # plot_data = { key:value for key, value in json_data.items() if key in ['column_names', 'data'] }
 # # Use plot_data for plotting
 
