@@ -42,6 +42,10 @@ if __name__ == '__main__':
 # session = requests.Session()
 # session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
 # raw_data = session.get(api_url)
+# json_data = raw_data.json()
+# plot_data = { key:value for key, value in json_data.items() if key in ['column_names', 'data'] }
+# # Use plot_data for plotting
+
 
 
 # Plotting
