@@ -44,8 +44,18 @@ def graph():
     
     plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime')
     plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
+    if 'Open' in app.vars['features']:
+        plot.line(plot_data['Date'], plot_data['Open'], 
+                  line_width=2, legend = "Adjusted Opening Price", color = "orange")
+    if 'Adj. Open' in app.vars['features']:
+        plot.line(plot_data['Date'], plot_data['Adj. Open'], 
+                  line_width=4, legend = "Adjusted Opening Price", color = "orange", line_dash = [4, 4])
+    if 'Close' in app.vars['features']:
+        plot.line(plot_data['Date'], plot_data['Close'], 
+                  line_width=4, legend = "Adj. Closing Price")
     if 'Adj. Close' in app.vars['features']:
-        plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price II")
+        plot.line(plot_data['Date'], plot_data['Adj. Close'], 
+                  line_width=4, legend = "Adj. Closing Price", line_dash = [4, 4])
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
     
