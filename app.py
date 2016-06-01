@@ -4,6 +4,7 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 #from bokeh.resources import INLINE
 #from bokeh.util.string import encode_utf8
+import numpy as np
 
 app = Flask(__name__)
 app.vars = {}
@@ -29,8 +30,8 @@ def index():
 
 @app.route('/graph')
 def graph():
-    x = [1, 2, 3, 4, 5]
-    y = [6, 7, 2, 4, 5]
+    x = np.random.random(10)
+    y = np.random.random(10)
     
     plot = figure(title="Stock Data for GOOG")
     plot.line(x, y, line_width=2)
