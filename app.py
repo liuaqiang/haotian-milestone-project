@@ -27,8 +27,7 @@ def index():
         #return ticker
         #return redirect('/graph')
     else:
-        return 'Not a POST'
-    #return render_template('index.html')
+        return render_template('index.html')
 
 @app.route('/graph')
 def graph():
