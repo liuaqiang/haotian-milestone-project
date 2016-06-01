@@ -30,13 +30,13 @@ def index():
 #ticker = 'GOOG'
 @app.route('/graph')
 def graph():
-    page_title = "Stock Data for GOOG"
-    graph_title = "Generated Graph for GOOG"
+    head_title = "Stock Data for GOOG"
+    page_title = "Generated Graph for GOOG"
     
     x = np.random.random(10)
     y = np.random.random(10)
     
-    plot = figure(title = page_title)
+    plot = figure(title = "~ Data from Quandle WIKI set ~")
     plot.line(x, y, line_width=2)
     
     #js_resources = INLINE.render_js()
@@ -44,7 +44,7 @@ def graph():
     
     script, div = components(plot)#, INLINE)
     
-    return render_template('graph.html', script=script, div=div, title = graph_title)
+    return render_template('graph.html', script=script, div=div, head_title = head_title, page_title = page_title)
     #return redirect('http://google.com')
 
 # ticker = 'GOOG'
