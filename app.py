@@ -14,14 +14,14 @@ app.vars = {}
 def main():
     return redirect('/index')
 
-@app.route('/index')#, methods = ['post'])
+@app.route('/index', methods = ['GET', 'POST'])
 def index():
     #return redirect('http://google.com')
     #ticker = request.form['ticker']
     #features = request.form.getlist('features')
     #return ticker
     #return redirect('/graph')
-    if request.method == 'post':
+    if request.method == 'POST':
         app.vars['ticker']  = request.form['ticker']
         #features = request.form.getlist('features')
         #return ticker
