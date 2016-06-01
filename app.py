@@ -25,13 +25,13 @@ def index():
         app.vars['ticker']  = request.form['ticker']
         #features = request.form.getlist('features')
         #return ticker
-        return redirect('http://google.com')
+        return redirect('/graph')
     else:
         return render_template('index.html')
 
 @app.route('/graph')
 def graph():
-    ticker = 'GOOG'
+    ticker = app.vars['ticker']
     head_title = "Stock Data for " + ticker
     page_title = "Generated Graph for " + ticker
     
