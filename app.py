@@ -16,18 +16,18 @@ def main():
 
 @app.route('/index', methods = ['get', 'post'])
 def index():
-    return redirect('http://google.com')
+    #return redirect('http://google.com')
     #ticker = request.form['ticker']
     #features = request.form.getlist('features')
     #return ticker
     #return redirect('/graph')
-    #if request.method == 'post':
-        #ticker  = request.form['ticker']
+    if request.method == 'post':
+        ticker  = request.form['ticker']
         #features = request.form.getlist('features')
         #return ticker
         #return redirect('/graph')
-    #else:
-        #return render_template('index.html')
+    else:
+        return redirect('http://google.com')
 
 @app.route('/graph')
 def graph():
