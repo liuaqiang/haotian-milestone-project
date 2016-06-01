@@ -56,7 +56,7 @@ def graph():
     x = np.random.random(10)
     y = np.random.random(10)
     plot = figure(title = "Test Graph")
-    plot.line(x, y, line_width = 2, legand = "Test Line")
+    plot.line(x, y, line_width = 2, legend = "Test Line")
     script, div = components(plot)#, INLINE)
     
     return render_template('graph.html', script=script, div=div, head_title = head_title, page_title = page_title)
