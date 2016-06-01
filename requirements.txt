@@ -7,8 +7,8 @@ oauthlib==0.7.2
 requests>=2.2.1
 simplejson==3.8.0
 bokeh == 0.9.2
-NumPy
+NumPy == 1.11.0
 Tornado >= 4.0
-PyYaml
-Six
-Pandas
+PyYaml == 3.11
+Six == 1.10.0
+Pandas == 0.18.1
