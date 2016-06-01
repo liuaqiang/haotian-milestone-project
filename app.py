@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect
 import requests
-from bokeh.plotting import figure
-from bokeh.embed import components
-from bokeh.resources import INLINE
-from bokeh.util.string import encode_utf8
+#from bokeh.plotting import figure
+#from bokeh.embed import components
+#from bokeh.resources import INLINE
+#from bokeh.util.string import encode_utf8
 
 app = Flask(__name__)
 app.vars = {}
