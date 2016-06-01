@@ -27,20 +27,20 @@ def index():
     #else:
         #return render_template('index.html')
 
-@app.route('/graph')
-def graph():
-    x = [1, 2, 3, 4, 5]
-    y = [6, 7, 2, 4, 5]
+#@app.route('/graph')
+#def graph():
+#    x = [1, 2, 3, 4, 5]
+#    y = [6, 7, 2, 4, 5]
     
-    plot = figure(title="Stock Data for GOOG")
-    plot.line(x, y, line_width=2)
+#    plot = figure(title="Stock Data for GOOG")
+#    plot.line(x, y, line_width=2)
     
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
     
-    script, div = components(plot, INLINE)
+#    script, div = components(plot, INLINE)
     
-    return render_template('graph.html', script=script, div=div)
+#    return render_template('graph.html', script=script, div=div)
     #return redirect('http://google.com')
 
 # ticker = 'GOOG'
