@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect
 import requests
-# from bokeh.plotting import figure
-# from bokeh.embed import components
+from bokeh.plotting import figure
+from bokeh.embed import components
+from bokeh.resources import INLINE
+from bokeh.util.string import encode_utf8
 
 app = Flask(__name__)
 app.vars = {}
@@ -12,30 +14,40 @@ def main():
 
 @app.route('/index', methods = ['post'])
 def index():
+    return redirect('http://google.com')
     #ticker = request.form['ticker']
     #features = request.form.getlist('features')
     #return ticker
     #return redirect('/graph')
-    if request.method == 'post':
-        ticker  = request.form['ticker']
-        features = request.form.getlist('features')
-        return ticker
+    #if request.method == 'post':
+        #ticker  = request.form['ticker']
+        #features = request.form.getlist('features')
+        #return ticker
         #return redirect('/graph')
-    else:
-        return render_template('index.html')
+    #else:
+        #return render_template('index.html')
 
 @app.route('/graph')
 def graph():
-    return redirect('http://google.com')
+    x = [1, 2, 3, 4, 5]
+    y = [6, 7, 2, 4, 5]
+    
+    graph = figure(title="Stock Data for GOOG")
+    graph.line(x, y, line_width=2)
+    
+    js_resources = INLINE.render_js()
+    css_resources = INLINE.render_css()
+    
+    script, div = components(graph, INLINE)
+    
+    return render_template('graph.html', script=script, div=div)
+    #return redirect('http://google.com')
 
 # ticker = 'GOOG'
 
 # @app.route('/plot-'+ ticker,methods=['POST'])
 # def next_app():  #remember the function name does not need to match the URL
 #     return redirect('graph.html',)
-
-if __name__ == '__main__':
-  app.run(host = '0.0.0.0')
 
 # # obtaining data through API
 # api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/' + ticker + '.json'
@@ -56,4 +68,6 @@ if __name__ == '__main__':
 #               x_axis_label='date',
 #               x_axis_type='datetime')
 # script, div = components(plot)
-# return render_template('graph.html', script=script, div=div)
+
+if __name__ == '__main__':
+  app.run(host = '0.0.0.0')
