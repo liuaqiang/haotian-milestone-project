@@ -10,6 +10,6 @@ bokeh == 0.9.2
 NumPy
 Tornado >= 4.0
 PyYaml
-DateUtil
+dateutil == 2.4.1
 Six
 Pandas
