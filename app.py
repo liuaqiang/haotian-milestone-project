@@ -21,14 +21,14 @@ def index():
     #features = request.form.getlist('features')
     #return ticker
     #return redirect('/graph')
-    #if request.method == 'post':
-    #    ticker  = request.form['ticker']
+    if request.method == 'post':
+        app.vars['ticker']  = request.form['ticker']
         #features = request.form.getlist('features')
         #return ticker
         #return redirect('/graph')
-    #else:
-    #    return redirect('http://google.com')
-    return render_template('index.html')
+    else:
+        return 'Not a POST'
+    #return render_template('index.html')
 
 @app.route('/graph')
 def graph():
