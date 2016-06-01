@@ -25,7 +25,7 @@ def index():
         app.vars['ticker']  = request.form['ticker']
         #features = request.form.getlist('features')
         #return ticker
-        #return redirect('/graph')
+        return redirect('http://google.com')
     else:
         return render_template('index.html')
 
