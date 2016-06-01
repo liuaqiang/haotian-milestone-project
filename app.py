@@ -41,8 +41,9 @@ def graph():
     session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
     raw_data = session.get(api_url)
     json_data = raw_data.json()
+    
     # json_data.keys() # display keys of concern
-    # [value for key,value in json_data.items() if key not in ['data']]
+    # [value for key,value in json_data.items() if key not in ['data']] # understand the structure of the data
     plot_data = { key:value for key, value in json_data.items() if key in ['column_names', 'data'] }
     plot_data = pd.DataFrame(plot_data['data'],columns = plot_data['column_names'])
     plot_data['Date'] = pd.to_datetime(plot_data['Date'])
@@ -53,29 +54,9 @@ def graph():
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
     
-    #x = np.random.random(10)
-    #y = np.random.random(10)
-    #plot = figure(title = "Test Graph")
-    #plot.line(x, y, line_width = 2, legend = "Test Line")
     script, div = components(plot)#, INLINE)
     
     return render_template('graph.html', script=script, div=div, head_title = head_title, page_title = page_title)
-    #return redirect('http://google.com')
-
-# ticker = 'GOOG'
-
-# @app.route('/plot-'+ ticker,methods=['POST'])
-# def next_app():  #remember the function name does not need to match the URL
-#     return redirect('graph.html',)
-
-
-
-# Plotting
-# plot = figure(tools=TOOLS,
-#               title='Data from Quandle WIKI set',
-#               x_axis_label='date',
-#               x_axis_type='datetime')
-# script, div = components(plot)
 
 if __name__ == '__main__':
   app.run(host = '0.0.0.0')
