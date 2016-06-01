@@ -42,7 +42,7 @@ def graph():
     plot_data = pd.DataFrame(plot_data['data'],columns = plot_data['column_names'])
     plot_data['Date'] = pd.to_datetime(plot_data['Date'])
     
-    plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime', width = 800)
+    plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime', plot_height = 800)
     #plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
     if 'Open' in app.vars['features']:
         plot.line(plot_data['Date'], plot_data['Open'], 
