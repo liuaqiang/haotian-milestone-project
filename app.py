@@ -16,11 +16,6 @@ def main():
 
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
-    #return redirect('http://google.com')
-    #ticker = request.form['ticker']
-    #features = request.form.getlist('features')
-    #return ticker
-    #return redirect('/graph')
     if request.method == 'POST':
         app.vars['ticker']  = request.form['ticker']
         #features = request.form.getlist('features')
