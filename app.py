@@ -47,16 +47,16 @@ def graph():
     plot_data = pd.DataFrame(plot_data['data'],columns = plot_data['column_names'])
     plot_data['Date'] = pd.to_datetime(plot_data['Date'])
     
-    #plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime')
-    #plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
+    plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime')
+    plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
     
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
     
-    x = np.random.random(10)
-    y = np.random.random(10)
-    plot = figure(title = "Test Graph")
-    plot.line(x, y, line_width = 2, legend = "Test Line")
+    #x = np.random.random(10)
+    #y = np.random.random(10)
+    #plot = figure(title = "Test Graph")
+    #plot.line(x, y, line_width = 2, legend = "Test Line")
     script, div = components(plot)#, INLINE)
     
     return render_template('graph.html', script=script, div=div, head_title = head_title, page_title = page_title)
