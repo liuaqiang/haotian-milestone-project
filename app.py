@@ -45,7 +45,7 @@ def graph():
     # [value for key,value in json_data.items() if key not in ['data']]
     plot_data = { key:value for key, value in json_data.items() if key in ['column_names', 'data'] }
     plot_data = pd.DataFrame(plot_data['data'],columns = plot_data['column_names'])
-    plot_data['Date'] = to_datetime(plot_data['Date'])
+    plot_data['Date'] = pd.to_datetime(plot_data['Date'])
     
     plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime')
     plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
