@@ -28,8 +28,7 @@ def index():
         #return redirect('/graph')
     #else:
     #    return redirect('http://google.com')
-    ticker = request.form['ticker']
-    return ticker
+    return render_template('index.html')
 
 @app.route('/graph')
 def graph():
