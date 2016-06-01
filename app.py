@@ -19,8 +19,7 @@ def index():
     if request.method == 'POST':
         app.vars['ticker']  = request.form['ticker']
         app.vars['features'] = request.form.getlist('features')
-        return 'your names is %s", %app.vars['features'][0]
-        #return redirect('/graph')
+        return redirect('/graph')
     else:
         return render_template('index.html')
 
@@ -45,7 +44,8 @@ def graph():
     
     plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime')
     plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
-    
+    if 'Adj. Close' in app.vars['features']:
+        plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price II")
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
     
