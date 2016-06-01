@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import requests
-#from bokeh.plotting import figure
-#from bokeh.embed import components
+from bokeh.plotting import figure
+from bokeh.embed import components
 #from bokeh.resources import INLINE
 #from bokeh.util.string import encode_utf8
 
@@ -38,7 +38,7 @@ def graph():
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
     
-    script, div = components(plot, INLINE)
+    script, div = components(plot)#, INLINE)
     
     return render_template('graph.html', script=script, div=div)
     #return redirect('http://google.com')
