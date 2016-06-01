@@ -4,7 +4,8 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 #from bokeh.resources import INLINE
 #from bokeh.util.string import encode_utf8
-import numpy as np
+#import numpy as np
+import pandas as pd
 
 app = Flask(__name__)
 app.vars = {}
@@ -27,17 +28,27 @@ def index():
         #return redirect('/graph')
     #else:
         #return render_template('index.html')
-#ticker = 'GOOG'
+
 @app.route('/graph')
 def graph():
-    head_title = "Stock Data for GOOG"
-    page_title = "Generated Graph for GOOG"
+    ticker = 'GOOG'
+    head_title = "Stock Data for " + ticker
+    page_title = "Generated Graph for " + ticker
     
-    x = np.random.random(10)
-    y = np.random.random(10)
+    # obtaining data through API
+    api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/' + ticker + '.json'
+    session = requests.Session()
+    session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
+    raw_data = session.get(api_url)
+    json_data = raw_data.json()
+    # json_data.keys() # display keys of concern
+    # [value for key,value in json_data.items() if key not in ['data']]
+    plot_data = { key:value for key, value in json_data.items() if key in ['column_names', 'data'] }
+    plot_data = pd.DataFrame(plot_data['data'],columns = plot_data['column_names'])
+    plot_data['Date'] = to_datetime(plot_data['Date'])
     
-    plot = figure(title = "~ Data from Quandle WIKI set ~")
-    plot.line(x, y, line_width=2)
+    plot = figure(title = "~ Data from Quandle WIKI set ~", x_axis_label='date', x_axis_type='datetime')
+    plot.line(plot_data['Date'], plot_data['Open'], line_width=2, legend = "Opening Price")
     
     #js_resources = INLINE.render_js()
     #css_resources = INLINE.render_css()
@@ -52,17 +63,6 @@ def graph():
 # @app.route('/plot-'+ ticker,methods=['POST'])
 # def next_app():  #remember the function name does not need to match the URL
 #     return redirect('graph.html',)
-
-# # obtaining data through API
-# api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/' + ticker + '.json'
-# session = requests.Session()
-# session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
-# raw_data = session.get(api_url)
-# json_data = raw_data.json()
-# # json_data.keys() # display keys of concern
-# # [value for key,value in json_data.items() if key not in ['data']]
-# plot_data = { key:value for key, value in json_data.items() if key in ['column_names', 'data'] }
-# # Use plot_data for plotting
 
 
 
