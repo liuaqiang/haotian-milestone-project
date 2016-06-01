@@ -18,9 +18,9 @@ def main():
 def index():
     if request.method == 'POST':
         app.vars['ticker']  = request.form['ticker']
-        #features = request.form.getlist('features')
-        #return ticker
-        return redirect('/graph')
+        app.vars['features'] = request.form.getlist('features')
+        return app.vars['features']
+        #return redirect('/graph')
     else:
         return render_template('index.html')
 
