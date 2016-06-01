@@ -12,7 +12,7 @@ app.vars = {}
 def main():
     return redirect('/index')
 
-@app.route('/index', methods = ['post'])
+@app.route('/index')#, methods = ['post'])
 def index():
     return redirect('http://google.com')
     #ticker = request.form['ticker']
