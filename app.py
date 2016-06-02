@@ -17,7 +17,7 @@ def main():
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        app.vars['ticker']  = request.form['ticker']
+        app.vars['ticker']  = request.form['ticker'].strip(' ')
         app.vars['features'] = request.form.getlist('features')
         return redirect('/graph')
     else:
